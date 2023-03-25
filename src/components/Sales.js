@@ -12,7 +12,7 @@ const Sales = () => {
 
 
     const handleDelete = (saleId) => {
-      axios.delete(`http://localhost:5000/api/sales/${saleId}`)
+      axios.delete(`https://sales-tracker-mern.onrender.com/api/sales/${saleId}`)
       .then(res => {
         console.log(res.data)
         if(res) {
@@ -25,7 +25,7 @@ const Sales = () => {
   /* Fetching the data from the backend and setting the state of activities to the data. */
   useEffect(() => {
     const fetchData = async () => {
-      const result = await fetch(`http://localhost:5000/api/sales`);
+      const result = await fetch(`https://sales-tracker-mern.onrender.com/api/sales`);
       const datas = await result.json();
       if(result.ok){
         setData(datas);

@@ -12,7 +12,7 @@ const UpdateSale = () => {
     useEffect(() => {
         const getAllData = async () => {
             const res = await axios.get(
-                `http://localhost:5000/api/sales/${id}`
+                `https://sales-tracker-mern.onrender.com/api/sales/${id}`
                 );
             setSaleData(res.data)
         }
@@ -25,7 +25,7 @@ const handleSubmit = async (e) => {
     e.preventDefault()
 
     try {
-        const res = await axios.put((`http://localhost:5000/api/sale/${id}`), saleData)
+        const res = await axios.put((`https://sales-tracker-mern.onrender.com/api/sale/${id}`), saleData)
         // console.log(res.data)
         if(res.ok){
             setSaleData({name: '', amount: ''})

@@ -9,7 +9,7 @@ const Total = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await fetch(`http://localhost:5000/api/sales`);
+      const result = await fetch(`https://sales-tracker-mern.onrender.com/api/sales`);
       const datas = await result.json();
       if(result.ok){
         setData(datas);
@@ -25,10 +25,7 @@ const Total = () => {
     return accumulator + object.amount
   }, 0)
 
-  // const values = Object.values(data[0])
-  // const sum = values.reduce((accumulator, value) => {
-  //   return accumulator + value
-  // }, 0)
+  
 
 
 

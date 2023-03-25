@@ -16,7 +16,7 @@ const Input = () => {
 
     const newSale = {name, amount};
 
-    const res = await fetch(`http://localhost:5000/api/sale`, {
+    const res = await fetch(`https://sales-tracker-mern.onrender.com/api/sale`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
