@@ -23,7 +23,7 @@ const Input = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/sales', requestOptions);
+      const response = await fetch('https://sales-tracker-mern.onrender.com/sales', requestOptions);
       const data = await response.json();
 
       if (response.ok) {

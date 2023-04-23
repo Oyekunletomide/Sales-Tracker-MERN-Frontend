@@ -16,7 +16,7 @@ const UpdateSale = () => {
     useEffect(() => {
         const fetchSale = async () => {
           const token = localStorage.getItem('token');
-          const response = await axios.get(`http://localhost:5000/sales/${id}`, {
+          const response = await axios.get(`https://sales-tracker-mern.onrender.com/sales/${id}`, {
             headers: { 'x-auth-token': token },
           });
           setSaleData(response.data);
@@ -30,7 +30,7 @@ const UpdateSale = () => {
       const handleSubmit = async (e) => {
         e.preventDefault();
         const token = localStorage.getItem('token');
-        await axios.put(`http://localhost:5000/sales/${id}`, saleData, {
+        await axios.put(`https://sales-tracker-mern.onrender.com/sales/${id}`, saleData, {
           headers: { 'x-auth-token': token },
         });
         navigate('/');

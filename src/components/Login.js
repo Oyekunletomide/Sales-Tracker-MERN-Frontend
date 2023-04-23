@@ -20,7 +20,7 @@ const Login = () => {
 		e.preventDefault();
 
 		try {
-		  const res = await axios.post('http://localhost:5000/auth/login', data);
+		  const res = await axios.post('https://sales-tracker-mern.onrender.com/auth/login', data);
 
 		  localStorage.setItem('token', res.data.token);
 		  console.log('User logged in:', res.data.token);

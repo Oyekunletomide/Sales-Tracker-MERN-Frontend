@@ -14,7 +14,7 @@ const Sales = ({ saleId }) => {
   useEffect(() => {
     const fetchSales = async () => {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/sales', {
+      const response = await axios.get('https://sales-tracker-mern.onrender.com/sales', {
         headers: { 'x-auth-token': token },
       });
       setData(response.data);
@@ -28,7 +28,7 @@ const Sales = ({ saleId }) => {
 
   const handleDelete = async (id) => {
     const token = localStorage.getItem('token');
-    await axios.delete(`http://localhost:5000/sales/${id}`, {
+    await axios.delete(`https://sales-tracker-mern.onrender.com/sales/${id}`, {
       headers: { 'x-auth-token': token },
     });
     setData(data.filter((sale) => sale._id !== id));

@@ -19,7 +19,7 @@ const Register = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://localhost:5000/auth/register";
+			const url = "https://sales-tracker-mern.onrender.com/auth/register";
 			const { data: res } = await axios.post(url, data);
 			navigate("/login");
 			console.log(res.message);

@@ -11,7 +11,7 @@ const Total = () => {
   useEffect(() => {
     const fetchSales = async () => {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/sales', {
+      const response = await axios.get('https://sales-tracker-mern.onrender.com/sales', {
         headers: { 'x-auth-token': token },
       });
       setData(response.data);
