@@ -11,7 +11,7 @@ const Logout = () => {
 	};
 
 	return (
-		<div className='h-20 bg-blue-400 flex justify-around items-center'>
+		<div className='p-5 bg-blue-400 flex justify-between items-center'>
 				<h1 className='text-white font-bold text-3xl'>Sales Tracker</h1>
 				<button className='text-white font-bold text-xl' onClick={handleLogout}>Logout</button>
 		</div>

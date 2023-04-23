@@ -45,15 +45,15 @@ const Sales = ({ saleId }) => {
       </div>
     <div >
             {data && data.map(dat => (
-              <div key={dat._id}  className='border-2 divide-gray-400 rounded-lg mt-10 w-full flex justify-center items-center'>
+              <div key={dat._id}  className='border-2 divide-gray-400 rounded-lg mt-10 flex justify-center items-center w-full '>
                   <div className='p-3 text-black font-bold' >{dat.product}</div>
                   <div className='p-3 text-black font-bold'>${dat.price}</div>
-                  <div className='ml-20 flex p-3'>
+                  <div className=' flex p-3'>
                     <Link to={`/api/sale/${dat._id}`}>
-                      <button className='bg-blue-400 w-20 rounded-full text-white font-bold'  >{<EditOutlinedIcon />}</button>
+                      <button>{<EditOutlinedIcon />}</button>
                     </Link>
                     <Link to={`/api/sales/${dat._id}`}>
-                      <button className='bg-blue-400 w-20 rounded-full text-white font-bold' onClick={() => handleDelete(dat._id)}>{<DeleteOutlineOutlinedIcon />}</button>
+                      <button onClick={() => handleDelete(dat._id)}>{<DeleteOutlineOutlinedIcon />}</button>
                     </Link>
 
                   </div>
