@@ -42,8 +42,7 @@ const Login = () => {
 
   return (
 		<div>
-			<div className='border-0 p-16 rounded-lg bg-cover bg-center w-full
-														'
+			<div className='border-0 p-16 rounded-lg bg-cover bg-center w-full'
 							style={{
 								backgroundImage:
 								  "url('https://images.pexels.com/photos/95425/pexels-photo-95425.jpeg?auto=compress&cs=tinysrgb&w=600')",
