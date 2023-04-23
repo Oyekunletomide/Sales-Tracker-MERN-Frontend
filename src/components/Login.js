@@ -41,8 +41,8 @@ const Login = () => {
 
 
   return (
-		<div className='items-center flex flex-col justify-center'>
-			<div className='border-0 p-16 mt-16 rounded-lg bg-cover bg-center 
+		<div>
+			<div className='border-0 p-16 rounded-lg bg-cover bg-center w-full
 														'
 							style={{
 								backgroundImage:

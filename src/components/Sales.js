@@ -53,7 +53,7 @@ const Sales = ({ saleId }) => {
                       <button>{<EditOutlinedIcon />}</button>
                     </Link>
                     <Link to={`/api/sales/${dat._id}`}>
-                      <button onClick={() => handleDelete(dat._id)}>{<DeleteOutlineOutlinedIcon />}</button>
+                      <button className='pl-5' onClick={() => handleDelete(dat._id)}>{<DeleteOutlineOutlinedIcon />}</button>
                     </Link>
 
                   </div>
