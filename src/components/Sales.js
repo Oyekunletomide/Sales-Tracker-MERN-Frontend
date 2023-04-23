@@ -2,37 +2,38 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
 import Total from './Total';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
-const Sales = () => {
-  const navigate = useNavigate()
+const Sales = ({ saleId }) => {
   const [data, setData] = useState([])
 
 
-    const handleDelete = (saleId) => {
-      axios.delete(`https://sales-tracker-mern.onrender.com/api/sales/${saleId}`)
-      .then(res => {
-        
 
-        if(res.ok) {
-          navigate('/')
-        }
-      })
-      .catch(err => console.log(err))
-      navigate('/')
-    }
-
-  /* Fetching the data from the backend and setting the state of activities to the data. */
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await fetch(`https://sales-tracker-mern.onrender.com/api/sales`);
-      const datas = await result.json();
-        setData(datas);
+    const fetchSales = async () => {
+      const token = localStorage.getItem('token');
+      const response = await axios.get('http://localhost:5000/sales', {
+        headers: { 'x-auth-token': token },
+      });
+      setData(response.data);
     };
-    fetchData();
 
+    fetchSales();
   }, []);
+
+
+
+
+  const handleDelete = async (id) => {
+    const token = localStorage.getItem('token');
+    await axios.delete(`http://localhost:5000/sales/${id}`, {
+      headers: { 'x-auth-token': token },
+    });
+    setData(data.filter((sale) => sale._id !== id));
+  };
+
 
 
   return (
@@ -45,16 +46,14 @@ const Sales = () => {
     <div >
             {data && data.map(dat => (
               <div key={dat._id}  className='border-2 divide-gray-400 rounded-lg mt-10 w-full flex justify-center items-center'>
-                  <div className='p-3'>{dat.name}</div>
-                  <div className='p-3'>
-                  ${dat.amount}
-                  </div>
+                  <div className='p-3 text-black font-bold' >{dat.product}</div>
+                  <div className='p-3 text-black font-bold'>${dat.price}</div>
                   <div className='ml-20 flex p-3'>
                     <Link to={`/api/sale/${dat._id}`}>
-                      <button className='bg-blue-400 w-20 rounded-full text-white font-bold'  >EDIT</button>
+                      <button className='bg-blue-400 w-20 rounded-full text-white font-bold'  >{<EditOutlinedIcon />}</button>
                     </Link>
                     <Link to={`/api/sales/${dat._id}`}>
-                      <button className='bg-blue-400 w-20 rounded-full text-white font-bold' onClick={() => handleDelete(dat._id)}>DELETE</button>
+                      <button className='bg-blue-400 w-20 rounded-full text-white font-bold' onClick={() => handleDelete(dat._id)}>{<DeleteOutlineOutlinedIcon />}</button>
                     </Link>
 
                   </div>
