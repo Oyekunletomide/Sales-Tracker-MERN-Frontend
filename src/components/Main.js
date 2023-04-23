@@ -13,7 +13,7 @@ const Main = () => {
 
 
   return (
-      <div  className='items-center flex flex-col justify-center mt-14'>
+      <div  className='items-center flex flex-col justify-center'>
         <Routes>
             {token && <Route path='/' element={<Sales />} />}
             {token ? <Route path='/sales' element={<Sales />} /> : <Route path='/sales' element={<Login />} />}
